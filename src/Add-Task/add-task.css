@@ -1,0 +1,41 @@
+.add-task-box {
+    background-color: #a9a9a9;
+    padding: 20px;
+    border-radius: 15px;
+    width: 600px ;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-task-box input,
+.add-task-box textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #151515;
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel-btn {
+    background-color: white;
+    color:#151515 ;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+}
+
+.save-btn {
+    background-color: #c00;
+    color: white ;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+}

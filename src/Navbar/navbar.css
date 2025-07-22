@@ -1,0 +1,31 @@
+.navbar {
+    height: 70px;
+    width: 100%;
+    background-color: #a9a9a9;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar-button {
+  border: none;
+  margin-left: 10px;
+  background-color: transparent;
+  font-size: 15px;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navbar-button:hover {
+  color: #151515;
+}

@@ -1,0 +1,18 @@
+.row-container {
+  font-size: 15px;
+  background-color: #a9a9a9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  color: white;
+}
+
+.left-group {
+  display: flex;
+  gap: 16px; /* فاصله بین نوشته‌ٔ سمت چپ‌ها */
+}
+
+/* .right-text {
+  font-weight: 250;
+} */
