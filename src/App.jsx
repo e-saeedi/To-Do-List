@@ -17,26 +17,30 @@ function App() {
 
   return (
     <>
-      <Navbar onAddTaskClick={() => setShowModal(true)} />
+      <div className="app-container">
+        <Navbar onAddTaskClick={() => setShowModal(true)} />
 
-      {tasks.length === 0 ? (
-        <Welcome onAddTaskClick={() => setShowModal(true)} />
-      ) : (
-        <TaskList tasks={tasks} />
-      )}
-
-      <Footer />
-
-      {ShowModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <AddTask
-              onSave={handleSaveTask}
-              closeModal={() => setShowModal(false)}
-            />
-          </div>
+        <div className="main-content">
+          {tasks.length === 0 ? (
+            <Welcome onAddTaskClick={() => setShowModal(true)} />
+          ) : (
+            <TaskList tasks={tasks} />
+          )}
         </div>
-      )}
+
+        <Footer />
+
+        {ShowModal && (
+          <div className="modal-overlay" onClick={() => setShowModal(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <AddTask
+                onSave={handleSaveTask}
+                closeModal={() => setShowModal(false)}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

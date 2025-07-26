@@ -1,12 +1,12 @@
 .navbar {
-    height: 70px;
-    width: 100%;
-    background-color: #a9a9a9;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: #b7b7b7;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-title {

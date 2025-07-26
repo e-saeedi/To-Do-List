@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - 60px); /* به اندازه navbar ازش کم کن */
+  height: calc(100vh - 60px);
   background-color: #151515;
   color: white;
   text-align: center;

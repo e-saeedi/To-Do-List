@@ -4,18 +4,16 @@ import "./TaskList.css";
 const TaskList = ({ tasks }) => {
   return (
     <div className="tasklist-container">
-      <h2> your Tasks</h2>
+      <h2 className="header">Tasks</h2>
       {tasks.map((task, index) => (
-        <div className="task-card" key={index}>
-          <h3>{task.name}</h3>
-          <p>{task.description}</p>
-          <p>
-            <strong>Due:</strong> {task.date}
-          </p>
-          <p>
-            <strong>Status:</strong>
-            {task.status}
-          </p>
+        <div key={index} className="task-item">
+          <span className="task-name">{task.name}</span>
+          <span className="task-desc">{task.description}</span>
+          <div className="task-actions">
+            <button className="confirm-btn">Complete</button>
+            <button className="edit-btn">Edit</button>
+            <button className="delete-btn">Delete</button>
+          </div>
         </div>
       ))}
     </div>

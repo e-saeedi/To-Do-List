@@ -1,0 +1,76 @@
+.tasklist-container {
+  background-color: #211c1c;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cbcbcb;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  color: white;
+}
+
+.task-name {
+  font-weight: 600;
+  color: #333;
+  width: 20%;
+}
+
+.task-desc {
+  font-size: 14px;
+  color: #666;
+  width: 55%;
+  text-align: center;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.confirm-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background-color: rgb(232, 0, 0);
+  transform: translateY(-2px);
+}
+
+.edit-btn {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: translateY(-2px);
+}
+
+.delete-btn {
+  background-color: white;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
