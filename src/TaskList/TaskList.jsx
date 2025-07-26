@@ -1,10 +1,10 @@
 import React from "react";
 import "./TaskList.css";
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, onDelete }) => {
   return (
     <div className="tasklist-container">
-      <h2 className="header">Tasks</h2>
+      <p className="header">Tasks</p>
       {tasks.map((task, index) => (
         <div key={index} className="task-item">
           <span className="task-name">{task.name}</span>
@@ -12,7 +12,14 @@ const TaskList = ({ tasks }) => {
           <div className="task-actions">
             <button className="confirm-btn">Complete</button>
             <button className="edit-btn">Edit</button>
-            <button className="delete-btn">Delete</button>
+            <button
+              className="delete-btn"
+              onClick={() => {
+                onDelete(index);
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
       ))}
