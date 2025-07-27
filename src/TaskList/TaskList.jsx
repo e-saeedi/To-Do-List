@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskList.css";
 
-const TaskList = ({ tasks, onDelete }) => {
+const TaskList = ({ tasks, onDelete, onEdit }) => {
   return (
     <div className="tasklist-container">
       <p className="header">Tasks</p>
@@ -11,7 +11,9 @@ const TaskList = ({ tasks, onDelete }) => {
           <span className="task-desc">{task.description}</span>
           <div className="task-actions">
             <button className="confirm-btn">Complete</button>
-            <button className="edit-btn">Edit</button>
+            <button className="edit-btn" onClick={() => onEdit(index)}>
+              Edit
+            </button>
             <button
               className="delete-btn"
               onClick={() => {

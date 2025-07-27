@@ -9,6 +9,7 @@ import "./Add-Task/modal.css";
 
 function App() {
   const [ShowModal, setShowModal] = useState(false);
+  const [editIndex, setEditIndex] = useState(null);
 
   const [tasks, setTasks] = useState(() => {
     const storedTasks = localStorage.getItem("tasks");
@@ -20,7 +21,14 @@ function App() {
   }, [tasks]);
 
   const handleSaveTask = (newTask) => {
-    setTasks((prevTasks) => [...prevTasks, newTask]);
+    if (editIndex !== null) {
+      const updatedTasks = [...tasks];
+      updatedTasks[editIndex] = newTask;
+      setTasks(updatedTasks);
+      setEditIndex(null);
+    } else {
+      setTasks((prevTasks) => [...prevTasks, newTask]);
+    }
     setShowModal(false);
   };
 
@@ -30,16 +38,34 @@ function App() {
     );
   };
 
+  const handleEditTask = (index) => {
+    setEditIndex(index);
+    setShowModal(true);
+  };
   return (
     <>
       <div className="app-container">
-        <Navbar onAddTaskClick={() => setShowModal(true)} />
+        <Navbar
+          onAddTaskClick={() => {
+            setShowModal(true);
+            setEditIndex(null);
+          }}
+        />
 
         <div className="main-content">
           {tasks.length === 0 ? (
-            <Welcome onAddTaskClick={() => setShowModal(true)} />
+            <Welcome
+              onAddTaskClick={() => {
+                setShowModal(true);
+                setEditIndex(null);
+              }}
+            />
           ) : (
-            <TaskList tasks={tasks} onDelete={handleDeleteTask} />
+            <TaskList
+              tasks={tasks}
+              onDelete={handleDeleteTask}
+              onEdit={handleEditTask}
+            />
           )}
         </div>
 
@@ -50,7 +76,12 @@ function App() {
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <AddTask
                 onSave={handleSaveTask}
-                closeModal={() => setShowModal(false)}
+                closeModal={() => {
+                  setShowModal(false);
+                  setEditIndex(null);
+                }}
+                editIndex={editIndex}
+                existingTask={editIndex !== null ? tasks[editIndex] : null}
               />
             </div>
           </div>

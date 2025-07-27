@@ -1,15 +1,31 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import "./add-task.css";
 
-const AddTask = ({ closeModal, tasks, setTasks, onSave }) => {
+const AddTask = ({
+  closeModal,
+  tasks,
+  setTasks,
+  onSave,
+  editIndex,
+  existingTask,
+}) => {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
 
+  useEffect(() => {
+    if (existingTask) {
+      setTaskName(existingTask.name);
+      setDescription(existingTask.description);
+      setDueDate(existingTask.date);
+    }
+  }, [existingTask]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!taskName || !description || !dueDate) return;
+    if (!taskName || !description) return;
     const newTask = {
       name: taskName,
       description: description,
@@ -23,7 +39,7 @@ const AddTask = ({ closeModal, tasks, setTasks, onSave }) => {
 
   return (
     <div className="add-task-box">
-      <h2> add New Task</h2>
+      <h2> {editIndex !== null ? "Edit Task" : "Add New Task"}</h2>
       <form onSubmit={handleSubmit}>
         <label>Task Name </label>
         <input
