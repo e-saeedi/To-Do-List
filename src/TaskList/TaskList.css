@@ -17,6 +17,7 @@
   padding: 10px 15px;
   border-radius: 18px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
 }
 
 .header {
@@ -30,6 +31,7 @@
   font-weight: 600;
   color: #333;
   width: 20%;
+  transition: color 0.3s ease;
 }
 
 .task-desc {
@@ -37,6 +39,17 @@
   color: #666;
   width: 55%;
   text-align: center;
+  transition: color 0.3s ease;
+}
+
+.task-item.completed {
+  opacity: 0.5;
+}
+
+.task-item.completed .task-name,
+.task-item.completed .task-desc {
+  text-decoration: line-through;
+  color: #444;
 }
 
 .task-actions {
@@ -51,11 +64,18 @@
   padding: 6px 12px;
   border-radius: 12px;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .confirm-btn:hover {
   background-color: rgb(232, 0, 0);
   transform: translateY(-2px);
+}
+
+.confirm-btn.completed-btn {
+  background-color: #6fbf73;
+  color: white;
+  cursor: default;
 }
 
 .edit-btn {
@@ -65,6 +85,7 @@
   padding: 6px 12px;
   border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .edit-btn:hover,

@@ -42,6 +42,17 @@ function App() {
     setEditIndex(index);
     setShowModal(true);
   };
+
+  const handleCompleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index] = {
+      ...updatedTasks[index],
+      completed: true,
+    };
+    const completedTask = updatedTasks.splice(index, 1)[0];
+    setTasks([...updatedTasks, completedTask]);
+  };
+
   return (
     <>
       <div className="app-container">
@@ -65,6 +76,7 @@ function App() {
               tasks={tasks}
               onDelete={handleDeleteTask}
               onEdit={handleEditTask}
+              onComplete={handleCompleteTask}
             />
           )}
         </div>
